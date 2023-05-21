@@ -6,7 +6,7 @@ It's just for fun.
 - Blink the light
 - Use speaker to "do" the sound
 
-**Sentence mode:**
+**Sentence or Word mode:**
 
 - Type a sentence or a word. Enter causes morris code print out.
 - Prints two lines. Top line is the message, second line is morris code
