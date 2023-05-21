@@ -19,7 +19,7 @@ It's just for fun.
 - Prints two lines. Top line is the word, second line is morris code
 - Each character is lined up with corresponding code
 
-*Character mode:*
+**Character mode:**
 - -c
 - Interactive. As soon as the key is pressed the code is printed.
 - CR/LF exits program
