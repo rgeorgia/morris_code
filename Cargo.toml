@@ -6,4 +6,3 @@ edition = "2021"
 [workspace]
 
 [dependencies]
-morris_lib = { path = "morris_lib"}
