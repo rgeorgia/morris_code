@@ -9,6 +9,7 @@ pub mod morris_code {
         morris_table.insert(String::from("B"), String::from("-..."));
         morris_table.insert(String::from("C"), String::from("-.-."));
         morris_table.insert(String::from("D"), String::from("."));
+        morris_table.insert(String::from("E"), String::from("."));
         morris_table.insert(String::from("F"), String::from("..-."));
         morris_table.insert(String::from("G"), String::from("--."));
         morris_table.insert(String::from("H"), String::from("...."));
@@ -58,6 +59,7 @@ pub mod morris_code {
         morris_table.insert(String::from("\""), String::from(".-..-."));
         morris_table.insert(String::from("?"), String::from("..--.."));
         morris_table.insert(String::from("/"), String::from("-..-."));
+        morris_table.insert(String::from(" "), String::from(" "));
 
         morris_table
     }
