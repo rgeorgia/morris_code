@@ -25,6 +25,7 @@ fn main() {
     //     println!("{} : {}", key, value)
     // }
     println!("Quote is {}", morris_table.get("\"").unwrap());
+    println!("Capitable A is {}", morris_table.get("A").unwrap());
 }
 // https://morsecode.world/international/morse2.html
 
