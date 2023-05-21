@@ -7,17 +7,11 @@ It's just for fun.
 - Use speaker to "do" the sound
 
 **Sentence mode:**
-- -s
-- Type a sentence. Enter causes morris code print out.
+
+- Type a sentence or a word. Enter causes morris code print out.
 - Prints two lines. Top line is the message, second line is morris code
 - Each word is lined up with corresponding code
 - End of line is CR/LF
-
-**Word mode:**
-- -w
-- Type a word then "enter"
-- Prints two lines. Top line is the word, second line is morris code
-- Each character is lined up with corresponding code
 
 **Character mode:**
 - -c
