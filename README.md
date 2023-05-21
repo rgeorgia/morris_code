@@ -14,6 +14,6 @@ It's just for fun.
 - End of line is CR/LF
 
 **Character mode:**
-- -c
+- --interactive
 - Interactive. As soon as the key is pressed the code is printed.
 - CR/LF exits program
