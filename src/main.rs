@@ -29,7 +29,7 @@ fn main() {
 }
 // https://morsecode.world/international/morse2.html
 
-pub fn morris_code_table() -> HashMap<String, String> {
+fn morris_code_table() -> HashMap<String, String> {
     let mut morris_table = HashMap::new();
     morris_table.insert(String::from("A"), String::from(".-"));
     morris_table.insert(String::from("B"), String::from("-..."));
