@@ -48,7 +48,7 @@ test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 ## Step Three – get input
 
-I guess I’ll go with clap. Why? The project still seems to be active and all the cool kids use clap.
+I guess I’ll go with [clap](https://docs.rs/clap/4.3.0/clap/). Why? The project still seems to be active and all the cool kids use clap.
 The plan is to enter a letter, word or sentence as a command-line argument. When you press `enter` morris_code will display the code for what you typed in. Example:
 
 ```bash
