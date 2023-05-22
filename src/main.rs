@@ -14,6 +14,8 @@ CR/LF exits program
 
 pub mod models;
 
+use std::process;
+
 use crate::models::morris_code::morris_code_table;
 use clap::Parser;
 
@@ -28,9 +30,15 @@ struct Args {
 fn main() {
     let args = Args::parse();
 
-    let input = args.code;
+    let input = match args.code {
+        Some(x) => x,
+        None => {
+            println!("You need at least on argument. If it's a sentance use double-quotes");
+            process::exit(1);
+        }
+    };
 
-    println!("{}", build_code(&input.unwrap()));
+    println!("{}", build_code(&input));
 }
 
 fn build_code(input_str: &str) -> String {
@@ -46,12 +54,13 @@ fn build_code(input_str: &str) -> String {
 #[cfg(test)]
 mod tests {
 
+    use super::*;
     use crate::morris_code_table;
 
     #[test]
-    fn test_morris_code_table_length_53() {
+    fn test_morris_code_table_length_55() {
         let m_table = morris_code_table();
-        assert_eq!(53, m_table.len());
+        assert_eq!(55, m_table.len());
     }
 
     #[test]
@@ -72,5 +81,21 @@ mod tests {
         let forty_two = format!("{}{}", m_table.get("4").unwrap(), m_table.get("2").unwrap());
         let expected = "....-..---".to_string();
         assert_eq!(forty_two, expected);
+    }
+
+    #[test]
+    fn test_build_code_letter() {
+        let expected = String::from(".-.");
+        assert_eq!(build_code("R"), expected);
+    }
+    #[test]
+    fn test_build_code_word() {
+        let expected = String::from("-----.-..-......");
+        assert_eq!(build_code("Morris"), expected);
+    }
+    #[test]
+    fn test_build_code_sentance() {
+        let expected = String::from("-----.-..-...... -.-.---.. ..... ...-..-.-.-- -.-.------.-..");
+        assert_eq!(build_code("Morris Code is very cool"), expected);
     }
 }
