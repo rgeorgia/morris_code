@@ -73,14 +73,19 @@ Get user input. The input is of String type, even if it’s a single character. 
 
 ```bash
 ❯ cargo test
-    Finished test [unoptimized + debuginfo] target(s) in 0.02s
+   Compiling morris v0.1.0 (/home/rgeorgia/workspace/rust_projects/morris_code)
+    Finished test [unoptimized + debuginfo] target(s) in 0.71s
      Running unittests src/main.rs (target/debug/deps/morris-fcb5527285925d70)
 
-running 4 tests
+running 7 tests
+test tests::test_build_code_letter ... ok
+test tests::test_build_code_word ... ok
+test tests::test_build_code_sentance ... ok
 test tests::test_morris_code_not_empty ... ok
-test tests::test_number_42 ... ok
 test tests::test_letter_a ... ok
 test tests::test_morris_code_table_length_55 ... ok
+test tests::test_number_42 ... ok
 
-test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
 ```
