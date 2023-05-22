@@ -1,11 +1,5 @@
 # morris code rust project
 
-It's just for fun.
-
-- Convert to run on rpi3/4.
-- Blink the light
-- Use speaker to "do" the sound
-
 **Sentence or Word mode:**
 
 - Type a sentence or a word. Enter causes morris code print out.
@@ -17,3 +11,9 @@ It's just for fun.
 - --interactive
 - Interactive. As soon as the key is pressed the code is printed.
 - CR/LF exits program
+
+**It's just for fun.**
+
+- Convert to run on rpi3/4.
+- Blink the light
+- Use speaker to "do" the sound
