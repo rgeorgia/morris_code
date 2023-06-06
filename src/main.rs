@@ -15,6 +15,9 @@ CR/LF exits program
 pub mod models;
 
 use std::process;
+use std::{thread, time};
+
+
 
 use crate::models::morris_code::morris_code_table;
 use clap::Parser;
@@ -39,6 +42,14 @@ fn main() {
     };
 
     println!("{}", build_code(&input));
+    let morris = build_code(&input);
+
+    let wait_time = time::Duration::from_millis(100);
+
+    for found in  morris.chars(){
+        thread::sleep(wait_time);
+        print!("{}", found);
+    }
 }
 
 fn build_code(input_str: &str) -> String {
