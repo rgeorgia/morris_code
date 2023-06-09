@@ -14,11 +14,10 @@ CR/LF exits program
 
 pub mod models;
 
-use std::process;
+use std::{process, io};
 use std::time::Duration;
 use std::thread;
-
-
+use std::io::{stdout, Write};
 
 use crate::models::morris_code::morris_code_table;
 use clap::Parser;
@@ -33,6 +32,8 @@ struct Args {
 
 fn main() {
     let args = Args::parse();
+    let dash_time = 500;
+    let dot_time = 250;
 
     let input = match args.code {
         Some(x) => x,
@@ -43,18 +44,28 @@ fn main() {
     };
 
     let morris = build_code(&input);
-    let wait_time = Duration::from_millis(500);
+    let mut lock = stdout().lock();
 
     for found in  morris.chars(){
-        thread::sleep(wait_time);
-        print_morris_char(found);
+        if found == '-' {
+            thread::sleep(Duration::from_millis(dash_time));
+        } else {
+            thread::sleep(Duration::from_millis(dot_time));
+        }
+
+        // https://doc.rust-lang.org/std/macro.print.html
+        // Note that stdout is frequently line-buffered by default so it may be necessary to use 
+        // io::stdout().flush() to ensure the output is emitted immediately.
+        // The print! macro will lock the standard output on each call. 
+        // If you call print! within a hot loop, this behavior may be the bottleneck of the loop. 
+        // To avoid this, lock stdout with io::stdout().lock():
+        
+        write!(lock, "{found}").unwrap();
+        io::stdout().flush().unwrap();
 
     }
 }
 
-fn print_morris_char(dd: char) {
-    print!(char) ;
-}
 
 fn build_code(input_str: &str) -> String {
     let morris_table = morris_code_table();
