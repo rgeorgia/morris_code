@@ -89,3 +89,31 @@ test tests::test_number_42 ... ok
 test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 ```
+
+## Timed output on the same line
+
+I want to output the Morris Code on the same line with a specific interval of time between characters. For example, the time for dots are 250 ms and dashes are 500 ms. Why? Because eventually this will be the sound duration. I used the use `std::time::Duration` and `use std::thread` to allow me to set the “sleep” intervals. 
+
+I want to loop through the Morris Code and printing a character, waiting a set amount of time, then print another character on the same line until the message is complete. My first attempt did not turn out as expected. 
+
+```rust
+    for found in  morris.chars(){
+        if found == '-' {
+            thread::sleep(Duration::from_millis(dash_time));
+        } else {
+            thread::sleep(Duration::from_millis(dot_time));
+        }
+        print!(“{found}”);
+    }
+```
+
+This waits for the amount an amount of time the prints the entire message on one line. No delay between characters. If I used `println!` I get the delay between characters but each character is on it’s own line! Bummer. Why? Turns out the print! macro locks the standard output on each call. So, if you call `print!` in a loop the output is buffered until the loop completes. The solution is to use `io::stdout().lock()`. This piece of documentation helped me out a lot. [Macro std::print](https://doc.rust-lang.org/std/macro.print.html)
+
+Instead of using the print macro we lock the stdout, print the character then flush the io buffer.
+
+```rust
+        write!(lock, "{found}").unwrap();
+        io::stdout().flush().unwrap();
+```
+
+Works great.

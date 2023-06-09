@@ -59,10 +59,9 @@ fn main() {
         // The print! macro will lock the standard output on each call. 
         // If you call print! within a hot loop, this behavior may be the bottleneck of the loop. 
         // To avoid this, lock stdout with io::stdout().lock():
-        
+
         write!(lock, "{found}").unwrap();
         io::stdout().flush().unwrap();
-
     }
 }
 
