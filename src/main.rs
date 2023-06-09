@@ -15,7 +15,8 @@ CR/LF exits program
 pub mod models;
 
 use std::process;
-use std::{thread, time};
+use std::time::Duration;
+use std::thread;
 
 
 
@@ -41,15 +42,18 @@ fn main() {
         }
     };
 
-    println!("{}", build_code(&input));
     let morris = build_code(&input);
-
-    let wait_time = time::Duration::from_millis(100);
+    let wait_time = Duration::from_millis(500);
 
     for found in  morris.chars(){
         thread::sleep(wait_time);
-        print!("{}", found);
+        print_morris_char(found);
+
     }
+}
+
+fn print_morris_char(dd: char) {
+    print!(char) ;
 }
 
 fn build_code(input_str: &str) -> String {
