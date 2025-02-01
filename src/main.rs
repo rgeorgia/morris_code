@@ -45,7 +45,7 @@ fn main() {
 
     let morris = build_code(&input);
     let mut lock = stdout().lock();
-
+    
     for found in  morris.chars(){
         if found == '-' {
             thread::sleep(Duration::from_millis(dash_time));
